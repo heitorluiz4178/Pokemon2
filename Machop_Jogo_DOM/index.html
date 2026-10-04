@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machop Adventure</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="game">
+        <div class="topo">
+            <div>
+                <span class="mini">POKÉMON ADVENTURE</span>
+                <h1>MACHOP</h1>
+                <p id="nivel">Nível 15</p>
+            </div>
+
+            <div class="status">
+                <div class="status-linha">
+                    <span>❤️ VIDA</span>
+                    <strong id="vidaTexto">100/100</strong>
+                </div>
+                <div class="barra">
+                    <div id="barraVida" class="vida"></div>
+                </div>
+
+                <div class="status-linha">
+                    <span>⚡ ENERGIA</span>
+                    <strong id="energiaTexto">80/100</strong>
+                </div>
+                <div class="barra">
+                    <div id="barraEnergia" class="energia"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="arena">
+            <div class="nuvem nuvem1">☁️</div>
+            <div class="nuvem nuvem2">☁️</div>
+
+            <div class="info-pokemon">
+                <strong id="nomeArena">MACHOP</strong>
+                <span id="tipoArena">LUTADOR</span>
+            </div>
+
+            <div id="efeito" class="efeito"></div>
+
+            <div class="chao"></div>
+
+            <div class="pokemon">
+                <img id="machopImg"
+                     src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/66.gif"
+                     alt="Machop">
+            </div>
+
+            <div id="baloon" class="baloon">O que o Machop vai fazer?</div>
+        </div>
+
+        <div class="painel">
+            <div class="mensagem">
+                <span>▶</span>
+                <p id="mensagem">Escolha uma ação para jogar com o Machop!</p>
+            </div>
+
+            <div class="comandos">
+                <button id="btnAtacar">⚔️<span>ATACAR</span></button>
+                <button id="btnComer">🍎<span>COMER</span></button>
+                <button id="btnTreinar">🏋️<span>TREINAR</span></button>
+                <button id="btnDescansar">😴<span>DESCANSAR</span></button>
+                <button id="btnDano">💥<span>RECEBER DANO</span></button>
+                <button id="btnAndar">🚶<span>ANDAR</span></button>
+            </div>
+        </div>
+
+        <div class="rodape">
+            <span>Pokédex Nº 66</span>
+            <span>•</span>
+            <span>Tipo: Lutador</span>
+            <span>•</span>
+            <span>Habilidade: Guts</span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

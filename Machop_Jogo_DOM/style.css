@@ -1,0 +1,371 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background:
+        radial-gradient(circle at 20% 20%, #334155 0, transparent 25%),
+        linear-gradient(135deg, #111827, #1e293b 55%, #0f172a);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    color: white;
+}
+
+.game {
+    width: 100%;
+    max-width: 1050px;
+    background: #111827;
+    border: 4px solid #374151;
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, .45);
+}
+
+.topo {
+    min-height: 125px;
+    background: linear-gradient(90deg, #172033, #202b43);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 30px;
+    border-bottom: 3px solid #374151;
+}
+
+.mini {
+    color: #94a3b8;
+    font-size: 11px;
+    letter-spacing: 3px;
+}
+
+.topo h1 {
+    font-size: 35px;
+    letter-spacing: 2px;
+    margin: 2px 0;
+}
+
+.topo p {
+    color: #facc15;
+    font-weight: bold;
+}
+
+.status {
+    width: 310px;
+}
+
+.status-linha {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    margin: 5px 0;
+}
+
+.barra {
+    height: 13px;
+    background: #374151;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.barra div {
+    height: 100%;
+    width: 100%;
+    border-radius: 20px;
+    transition: width .5s ease;
+}
+
+.vida {
+    background: linear-gradient(90deg, #16a34a, #4ade80);
+}
+
+.energia {
+    background: linear-gradient(90deg, #d97706, #facc15);
+}
+
+.arena {
+    height: 440px;
+    position: relative;
+    overflow: hidden;
+    background:
+        linear-gradient(to bottom, #7dd3fc 0%, #bae6fd 65%, #86efac 65%, #4ade80 100%);
+}
+
+.arena::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center bottom, rgba(255,255,255,.15), transparent 45%);
+    pointer-events: none;
+}
+
+.chao {
+    position: absolute;
+    width: 390px;
+    height: 65px;
+    border-radius: 50%;
+    background: rgba(22, 101, 52, .35);
+    bottom: 45px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.pokemon {
+    position: absolute;
+    left: 50%;
+    bottom: 65px;
+    transform: translateX(-50%);
+    z-index: 3;
+    transition: .35s;
+}
+
+.pokemon img {
+    width: 230px;
+    height: 230px;
+    image-rendering: pixelated;
+    filter: drop-shadow(0 12px 5px rgba(0,0,0,.22));
+}
+
+.info-pokemon {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    background: rgba(15, 23, 42, .85);
+    padding: 13px 18px;
+    border-radius: 12px;
+    z-index: 5;
+}
+
+.info-pokemon strong {
+    display: block;
+    font-size: 19px;
+}
+
+.info-pokemon span {
+    font-size: 11px;
+    color: #facc15;
+    font-weight: bold;
+}
+
+.nuvem {
+    position: absolute;
+    font-size: 45px;
+    opacity: .7;
+}
+
+.nuvem1 {
+    top: 45px;
+    right: 15%;
+}
+
+.nuvem2 {
+    top: 105px;
+    left: 13%;
+    font-size: 35px;
+}
+
+.baloon {
+    position: absolute;
+    right: 35px;
+    bottom: 95px;
+    max-width: 250px;
+    background: white;
+    color: #111827;
+    padding: 15px 18px;
+    border-radius: 15px;
+    font-weight: bold;
+    z-index: 6;
+    box-shadow: 0 7px 15px rgba(0,0,0,.15);
+}
+
+.baloon::after {
+    content: "";
+    position: absolute;
+    left: 25px;
+    bottom: -10px;
+    border-width: 10px 10px 0;
+    border-style: solid;
+    border-color: white transparent transparent;
+}
+
+.efeito {
+    position: absolute;
+    z-index: 8;
+    left: 50%;
+    top: 48%;
+    transform: translate(-50%, -50%);
+    font-size: 70px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.painel {
+    padding: 20px 25px 25px;
+    background: #0b1120;
+}
+
+.mensagem {
+    min-height: 58px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    margin-bottom: 15px;
+    background: #1e293b;
+    border: 2px solid #334155;
+    border-radius: 12px;
+}
+
+.mensagem span {
+    color: #facc15;
+    font-size: 22px;
+}
+
+.mensagem p {
+    color: #e2e8f0;
+}
+
+.comandos {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+}
+
+button {
+    min-height: 72px;
+    border: 2px solid #475569;
+    border-radius: 12px;
+    background: #1e293b;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: .2s;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    background: #334155;
+    border-color: #facc15;
+}
+
+button:active {
+    transform: scale(.96);
+}
+
+button span {
+    display: block;
+    margin-top: 6px;
+    font-size: 10px;
+}
+
+.rodape {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding: 13px;
+    color: #94a3b8;
+    background: #070b14;
+    font-size: 11px;
+}
+
+.pulando {
+    animation: pulo .55s ease;
+}
+
+.atacando {
+    animation: ataque .6s ease;
+}
+
+.dano {
+    animation: dano .55s ease;
+}
+
+.comendo {
+    animation: comer .7s ease;
+}
+
+@keyframes pulo {
+    50% { transform: translateX(-50%) translateY(-55px); }
+}
+
+@keyframes ataque {
+    50% { transform: translateX(90px) scale(1.1); }
+}
+
+@keyframes dano {
+    25%, 75% { transform: translateX(calc(-50% - 15px)); filter: brightness(2); }
+    50% { transform: translateX(calc(-50% + 15px)); }
+}
+
+@keyframes comer {
+    50% { transform: translateX(-50%) scale(1.12); }
+}
+
+.mostrarEfeito {
+    animation: efeito .65s ease;
+}
+
+@keyframes efeito {
+    0% { opacity: 0; transform: translate(-50%, -50%) scale(.3); }
+    50% { opacity: 1; transform: translate(-50%, -50%) scale(1.3); }
+    100% { opacity: 0; transform: translate(-50%, -50%) scale(1); }
+}
+
+@media (max-width: 800px) {
+    .topo {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 18px;
+    }
+
+    .status {
+        width: 100%;
+    }
+
+    .arena {
+        height: 400px;
+    }
+
+    .comandos {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 500px) {
+    body {
+        padding: 5px;
+    }
+
+    .topo {
+        padding: 18px;
+    }
+
+    .topo h1 {
+        font-size: 27px;
+    }
+
+    .arena {
+        height: 390px;
+    }
+
+    .pokemon img {
+        width: 180px;
+        height: 180px;
+    }
+
+    .baloon {
+        right: 15px;
+        bottom: 45px;
+        font-size: 12px;
+    }
+
+    .comandos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
